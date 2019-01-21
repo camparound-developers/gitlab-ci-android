@@ -10,12 +10,12 @@ RUN dpkg --add-architecture i386 \
 
 # Set up environment variables
 ENV ANDROID_HOME="/home/user/android-sdk-linux" \
-    SDK_URL="https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip" \
-    GRADLE_URL="https://services.gradle.org/distributions/gradle-4.5.1-all.zip" \
-    SDK_VERSION="27.0.3" \
-    VERSION_TARGET_SDK="25"
+    SDK_URL="https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip" \
+    GRADLE_URL="https://services.gradle.org/distributions/gradle-4.10.1-all.zip" \
+    SDK_VERSION="28.0.3" \
+    VERSION_TARGET_SDK="28"
 
-ENV VERSION_SDK_TOOLS "3859397"
+ENV VERSION_SDK_TOOLS "4333796"
 
 RUN useradd -m user
 USER user
@@ -39,4 +39,3 @@ ENV PATH="/home/user/gradle/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-t
 
 RUN ${ANDROID_HOME}/tools/bin/sdkmanager "tools" "platforms;android-${VERSION_TARGET_SDK}"
 RUN ${ANDROID_HOME}/tools/bin/sdkmanager "extras;android;m2repository" "extras;google;google_play_services" "extras;google;m2repository"
-
